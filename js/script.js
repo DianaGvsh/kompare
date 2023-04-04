@@ -1,12 +1,25 @@
-$(document).ready(function () {
+$(function () {
   questions();
   openMenu();
 });
 
 function questions() {
-  $('.question-list-title').on('click', function () {
-    $(this).toggleClass('open');
-    $(this).next('.question-list-text').slideToggle();
+  var options = {
+    activeClass: 'open',
+    animSpeed: 400,
+  };
+
+  $('.js-open-close li').each(function () {
+    var item = $(this);
+    var opener = item.find('.js-open-close-opener');
+    var slider = item.find('.js-open-close-slider');
+
+    function toggle() {
+      opener.toggleClass(options.animSpeed);
+      slider.slideToggle(options.animSpeed);
+    }
+
+    opener.on('click', toggle);
   });
 }
 
