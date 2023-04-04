@@ -103,6 +103,9 @@ p:not(:last-child) {
 .text-center{
   text-align: center;
 }
+.text-nowrap{ 
+  white-space: nowrap;
+}
 .text-uppercase{
   text-transform: uppercase;
 }
@@ -469,13 +472,31 @@ label{
     background: var(--white-secondary-color);
   }
 }
-.partner-section{
-  padding: 73px 0 110px;
-  box-shadow: 0 -20px 32px -8px rgba(0, 0, 0, 0.1), 0 -20px 32px -8px rgba(0, 0, 0, 0.1) inset;
-  background: var(--white-color);
-  .content-block{
-    gap: 114px;
-    padding: 45px 70px 45px 30px;
+.partner{
+  &-section{
+    padding: 73px 0 110px;
+    box-shadow: 0 -20px 32px -8px rgba(0, 0, 0, 0.1), 0 -20px 32px -8px rgba(0, 0, 0, 0.1) inset;
+    background: var(--white-color);
+    .content-block{
+      gap: 114px;
+      padding: 45px 70px 45px 30px;
+    }
+  }
+  &-list{
+    @include dflex;
+    @include flex-wrap (wrap);
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 26px;
+    padding: 0 10px;
+    &-item{
+      max-width: 148px;
+      max-height: 46px;
+      transition: all 0.3s ease;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
   }
 }
 .question{
@@ -808,8 +829,11 @@ label{
   .partner-section{
     padding: 37px 0;
     .content-block{
-      gap: 90px;
-      padding: 37px 50px;
+      gap: 74px;
+      padding: 37px 30px;
+      &-img{
+        @include flex(0 0 490px);
+      }
     }
   }
   .tips-section{
@@ -847,10 +871,18 @@ label{
       @include flex(0 0 320px);
     }
   }
-  .partner-section{
-    .content-block{
-      gap: 74px;
-      padding: 37px 20px;
+  .partner{
+    &-section{
+      .content-block{
+        @include flex-column-reverse;
+        padding: 37px 20px;
+        &-img{
+          @include flex(0 0 320px);
+        }
+      }
+    }
+    &-list{
+      padding: 0 70px;
     }
   }
   .testimonial{
@@ -978,10 +1010,16 @@ label{
       }
     }
   }
-  .partner-section{
-    .content-block{
-      gap: 40px;
-      padding: 37px 0;
+  .partner{
+    &-section{
+      .content-block{
+        gap: 40px;
+        padding: 37px 0;
+      }
+    }
+    &-list{
+      gap: 20px;
+      padding: 0;
     }
   }
   .question{
@@ -1069,6 +1107,16 @@ label{
       width: 66px;
       height: 2px;
       margin: 20px 0;
+    }
+  }
+}
+
+@media (max-width: 374px){
+  .partner{
+    &-list{
+      &-item{
+        max-width: 130px;
+      }
     }
   }
 }

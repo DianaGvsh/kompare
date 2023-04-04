@@ -6,6 +6,10 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+@mixin flex-column-reverse{
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
 @mixin flex-row{
   -ms-flex-direction: row;
   flex-direction: row;

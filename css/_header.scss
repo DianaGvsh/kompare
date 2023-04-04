@@ -85,7 +85,7 @@
   }
 }
 
-@media (max-width: 767px){
+@media(max-width: 767px), (max-width: 991px) and (orientation:landscape){
   .main-header{
     box-shadow: 0 -20px 32px -8px rgba(0, 0, 0, 0.1);
     position: fixed;
